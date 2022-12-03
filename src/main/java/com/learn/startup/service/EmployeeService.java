@@ -1,5 +1,6 @@
 package com.learn.startup.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,18 @@ public class EmployeeService {
 
 	@Autowired
 	private EmployeeRepository employeeRepository;
-	
-	public Optional<Employee> getEmployeeByID(Integer id)
-	{
+
+	public Optional<Employee> getEmployeeByID(Integer id) {
 		return employeeRepository.findById(id);
+	}
+
+	/**
+	 * This Method gives all the first name based on the junk.
+	 * 
+	 * @param junk : Parameter for junk type.
+	 * @return : List of first name.
+	 */
+	public List<String> getFirstNameByJunk(String junk) {
+		return employeeRepository.findFirstNameByJunk(junk);
 	}
 }
