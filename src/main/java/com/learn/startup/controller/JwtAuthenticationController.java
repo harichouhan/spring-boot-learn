@@ -16,6 +16,8 @@ import com.learn.startup.configuration.jwt.JwtTokenUtil;
 import com.learn.startup.configuration.jwt.JwtUserDetailsService;
 import com.learn.startup.model.JwtRequest;
 import com.learn.startup.model.JwtResponse;
+import com.learn.startup.model.UserRequest;
+import com.learn.startup.service.UserService;
 	
 
 @RestController
@@ -30,6 +32,9 @@ public class JwtAuthenticationController {
 
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
+	
+	@Autowired
+    private UserService userService;
 
 	
 	/**
@@ -49,6 +54,18 @@ public class JwtAuthenticationController {
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
 		return ResponseEntity.ok(new JwtResponse(token));
+	}
+	
+	
+	/**
+	 * Register User.
+	 * @param user
+	 * @return
+	 * @throws Exception
+	 */
+	@PostMapping(value = "/register")
+	public ResponseEntity<?> saveUser(@RequestBody UserRequest user) throws Exception {
+		return ResponseEntity.ok(userService.saveUser(user));
 	}
 
 	
