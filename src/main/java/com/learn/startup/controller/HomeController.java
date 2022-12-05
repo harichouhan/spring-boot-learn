@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.learn.startup.service.EmployeeService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
 @RestController
 @RequestMapping("/home")
+@SecurityRequirement(name = "bearer-key") 
 public class HomeController {
 
 	@Autowired
