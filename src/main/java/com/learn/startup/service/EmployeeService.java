@@ -1,5 +1,6 @@
 package com.learn.startup.service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,5 +28,14 @@ public class EmployeeService {
 	 */
 	public List<String> getFirstNameByJunk(String junk) {
 		return employeeRepository.findFirstNameByJunk(junk);
+	}
+	
+	public List<Employee> getAllEmps()
+	{
+	
+		List<Employee> emps = employeeRepository.getAll();
+		Collections.sort(emps);
+		return emps;
+		
 	}
 }

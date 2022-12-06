@@ -20,4 +20,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	 */
 	@Query(value="SELECT firstName from Employee where junk=:junk")
 	List<String> findFirstNameByJunk(@Param("junk")String junk);
+	
+	@Query(value="SELECT emp from Employee emp")
+	List<Employee> getAll();
+	
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee implements Comparable<Employee>{
 	
     @Id
     @Column(name="employee_id")
@@ -77,6 +77,12 @@ public class Employee {
 	public String toString() {
 		return "Employee [employeeID=" + employeeID + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", dateOfBirth=" + dateOfBirth + ", phoneNumber=" + phoneNumber + ", junk=" + junk + "]";
+	}
+
+	@Override
+	public int compareTo(Employee o) {
+		
+		return getFirstName().compareTo(o.firstName);
 	}
     
     
