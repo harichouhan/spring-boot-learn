@@ -31,6 +31,10 @@ Covered part's :
       ![image](https://user-images.githubusercontent.com/45940544/205914376-86234402-f363-49a8-8b13-1d367c7ab494.png)
 
   7. Mongo DB - CRUD Operation    
+  
+  8. Junit / Mockito
+  
+  9. Cache
 
 
 Suggestion, Go commit wise it will be more intresting and easy to learn.
