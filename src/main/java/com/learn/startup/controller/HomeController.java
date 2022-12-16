@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.startup.service.EmployeeService;
+import com.learn.startup.utill.InvalidCacheUtill;
+import com.sun.javafx.binding.StringFormatter;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
@@ -20,6 +22,9 @@ public class HomeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private InvalidCacheUtill invalidCacheUtill;
 
 	@GetMapping
 	public String home() {
@@ -39,5 +44,17 @@ public class HomeController {
 	@GetMapping("/firstName/junk/{junk}")
 	public List<String> getFirstNameByJunk(@PathVariable String junk) {
 		return employeeService.getFirstNameByJunk(junk);
+	}
+	
+	/**
+	 * This API created to invalid cache.
+	 * @param cacheName
+	 * @return
+	 */
+	@GetMapping("invalidCache/{cacheName}")
+	public String invalidCache(@PathVariable String cacheName) 
+	{
+		 invalidCacheUtill.evictAllCacheValues(cacheName);
+	     return String.format("Invalidated : %s", cacheName); 	
 	}
 }
