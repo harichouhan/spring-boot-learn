@@ -2,6 +2,7 @@ package com.learn.startup.repository;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +19,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 	 * @param junk : Parameter for junk type.
 	 * @return : List of first name.
 	 */
+	@Cacheable(value = "nameByJunk")
 	@Query(value="SELECT firstName from Employee where junk=:junk")
 	List<String> findFirstNameByJunk(@Param("junk")String junk);
 	

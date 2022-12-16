@@ -26,6 +26,7 @@ public class EmployeeService {
 	 * @param junk : Parameter for junk type.
 	 * @return : List of first name.
 	 */
+	
 	public List<String> getFirstNameByJunk(String junk) {
 		return employeeRepository.findFirstNameByJunk(junk);
 	}
