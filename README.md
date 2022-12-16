@@ -37,6 +37,6 @@ Covered part's :
   9. Cache
 
 
-Suggestion, Go commit wise it will be more intresting and easy to learn.
+Suggestion, Go commit wise it will be more interesting and easy to learn.
 
 
